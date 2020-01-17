@@ -1,0 +1,29 @@
+body{
+	
+	 background-image: linear-gradient(to right, rgba(255,0,0,0), #8ac6d1);
+}
+#textchange{
+	font-family: 'Josefin+Sans', serif;	 
+}
+.btn.btn-primary
+{
+	padding: .175rem .50rem;
+}
+ .imgstyle
+{
+	mx-auto;
+	height:6.25rem;
+	width:25rem;
+}
+.homejob{
+	font-family: 'Baskervville', serif;
+	letter-spacing:.125rem;
+	font-weight: bolder;
+}
+.widthbtn{
+	width: 8.5rem;
+}
+
+
+
+

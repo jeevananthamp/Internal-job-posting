@@ -1,0 +1,78 @@
+body{
+	 background-image: linear-gradient(to right, rgba(255,0,0,0), #8ac6d1);
+}
+.container{
+	font-family: 'Josefin+Sans', serif;
+}
+.imgstyle
+{
+	
+	height:6.25rem;
+	width:25rem;
+}
+.btn
+{
+	color: #fff;
+    background-color: #337ab7;
+    border-color: #2e6da4;
+    margin-left:220px;
+}
+.container {
+  padding: 16px;
+}
+
+.form-group
+{
+	color:black;
+	text-color:black;
+	text-align:left;
+	
+}
+
+#divstyle
+{
+	text-align:center;
+}
+.spanstyle
+{
+	margin-left:2rem;
+}
+label
+{
+	
+  float: left;
+  width: 9.375rem;
+  margin-left:18%
+
+}
+#label
+{
+	margin-left:28%;
+	width:200px;
+	height:30px;
+}
+form {
+	text-align:center;
+   border-radius:2rem;
+}	
+.formstyle{
+	border-radius: 2rem;
+	background-image: linear-gradient(to right, rgba(255,0,0,0), #bbded6);
+}
+
+input{
+
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  width:100px;
+
+}
+
+.error-message
+{
+color:red;
+}
+

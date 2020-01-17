@@ -1,0 +1,22 @@
+ .imgstyle
+{
+	mx-auto;
+	height:6.25rem;
+	width:25rem;
+}
+body{
+	
+	 background-image: linear-gradient(to right, rgba(255,0,0,0), #8ac6d1);
+}
+#textchange{
+	font-family: 'Josefin+Sans', serif;	 
+}
+.applyjobradius{
+	border-radius:2.8rem; 
+}
+
+h3{
+font-family: 'Josefin+Sans', serif;	
+	text-align: center;
+	letter-spacing: 0.1rem;
+}

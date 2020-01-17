@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" type="text/css" th:href="@{/css/LoginStyle.css}"/>
+<link rel="stylesheet" th:href="@{https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css}" >
+<link href="https://fonts.googleapis.com/css?family=Baskervville|Josefin+Sans|Playfair+Display&display=swap" rel="stylesheet">
+
+    <title>Login</title>
+</head>
+<body>
+<div id="gradient" class=divstyle>
+<br>
+
+<img class="imgstyle" src="/images/thislogo.png" alt="logo">
+<br>
+<br>
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-sm-5 col-md-6 col-md-offset-3 mx-auto">
+             
+                <form class="shadow p-3 mb-5 bg-white" th:action="@{/authenticateTheUser}" method="post" autocomplete="off">
+                    <div th:if="${param.error}">
+                        <div class="alert alert-danger">Invalid username or password.
+                        </div>
+                    </div>
+                    <div th:if="${param.logout}">
+                        <div class="alert alert-info">You have been logged out.</div>
+                    </div>
+                <div>
+                <br>
+                <br>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ3AOUCW1mtnHp1vetr9MadmjpenidY5mpqCRKmscRxiZ7_2AY6" alt="avatar" class="avatar">
+                    <br>
+                   <div class="labelstyle">
+                    <div class="form-group">
+                        <label for="username">Employee ID </label>
+                     
+                        <input type="text" id="username" name="username" class="form-control" autofocus="autofocus" placeholder="Employee ID" />
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+      
+                         <input type="password" id="password" name="password" class="form-control" placeholder="Password" />
+                    </div>
+                </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-sm-6 col-sm-offset-3 mx-auto">
+                                <input type="submit" name="login-submit" id="login-submit" class="form-control btn btn-primary " value="Log In" />
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    <br>
+                   
+                    <div class="form-group">
+                        <span class="spanstyle">New user? <a href="/" th:href="@{/registration}">Register
+        </a></span>
+                    </div>
+                </form>
+            </div>
+        </div>
+</div>
+
+   <br>
+   <br>
+
+    <script type="text/javascript" th:src="@{/webjars/jquery/3.2.1/jquery.min.js/}"></script>
+    <script type="text/javascript" th:src="@{/webjars/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
+ </div>
+</body>
+</html>

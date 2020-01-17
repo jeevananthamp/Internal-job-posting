@@ -1,0 +1,480 @@
+swagger: '2.0'
+info:
+  version: 1.0.0
+  title: "Internal Job Posting"
+  description: "This is a Internal Job Posting application."
+  contact: 
+    name: "THIS"
+    url: "https://www.torryharris.com/"
+    email: "thbs@gmail.com"
+  license:
+    name: MIT
+    url: http://opensource.org/licenses/MIT
+host: localhost:8080    
+    
+schemes:
+- "https"
+- "http"    
+paths:
+  /registration:
+   post:
+     summary: "Registration form"
+     description: "Enter Empid, First Name, Last Name, Email, Confirm Email,  Password, Confirm Password, Experience, Level, Skillset, Location"
+     operationId: "Registration page"
+     consumes:
+      - "application/json"
+      - "application/xml"
+     produces:
+      - "application/xml"
+      - "application/json"
+     parameters:  
+      - in: "body"
+        name: "body"
+        description: " "
+        required: true
+        schema:
+          type: "array"
+          items:
+            $ref: "#/definitions/register"
+     responses:
+       200:
+         description:  Registration Successful
+
+  /login:
+   post:
+     summary: "User login"
+     description: "Enter Empid and Password"
+     operationId: "login page"
+     consumes:
+      - "application/json"
+      - "application/xml"
+     produces:
+      - "application/xml"
+      - "application/json"
+     parameters:  
+      - in: "query"
+        name: "Empid"
+        description: "Enter Empid"
+        required: true
+        type: "string"
+      - in: "query"
+        name: "Password"
+        description: "Enter Password"
+        required: true
+        type: "string"
+        
+     responses:
+       200:
+         description:  "Success message"
+         schema:
+           type: "array"
+           items:
+             $ref: "#/definitions/login"
+       401:
+         description:  "unauthorised user"
+  /admin:
+    get:
+      summary: list job
+      description: Provides job list
+      operationId: getjobs
+      consumes:
+        - application/json
+        - application/xml
+      produces:
+        - application/xml
+        - application/json
+      parameters:
+        - in: body
+          name: job details
+          required: true
+          schema:
+            $ref: '#/definitions/viewJob'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/viewJob'
+  /admin/create:
+    post:
+      summary: Job added to db
+      description: ' create new job '
+      operationId: addtodb
+      consumes:
+        - application/json
+        - application/xml
+      produces:
+        - application/xml
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          description: Enter jobname
+          required: true
+          schema:
+            $ref: '#/definitions/createJob'
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/createJob'
+        '400':
+          description: Invalid Order
+          
+  /admin/edit:
+    post:
+      summary: edit job details and add to db
+      description: 'edit job details and add to db'
+      operationId: editjobaddtodb
+      consumes:
+        - application/json
+        - application/xml
+      produces:
+        - application/xml
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          description: Enter jobname
+          required: true
+          schema:
+            items:
+              $ref: '#/definitions/editJob'
+      responses:
+        '200':
+          description: OK
+  /admin/viewApplications:
+    get:
+      summary: 'view applications '
+      description: enter jobname
+      operationId: searchapplications
+      consumes:
+        - application/json
+        - application/xml
+      produces:
+        - application/xml
+        - application/json
+      parameters:
+        - in: query
+          name: jobname
+          description: Enter jobname
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/viewApp'
+  /admin/delete:
+    delete:
+      summary: Delete job
+      description: ' '
+      operationId: deletejob
+      consumes:
+        - application/json
+        - application/xml
+      produces:
+        - application/xml
+        - application/json
+      parameters:
+        - in: path
+          name: jobId
+          description: Enter jobId
+          required: true
+          type: integer
+      responses:
+        '200':
+          description: job deleted
+  /user/viewJobs:
+    get:
+      summary: 'view posted jobs '
+      description: enter jobname
+      operationId: searchjobs
+      consumes:
+        - application/json
+        - application/xml
+      produces:
+        - application/xml
+        - application/json
+      parameters:
+        - in: query
+          name: jobname
+          description: Enter jobname
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/viewJobs'
+  
+  /user/apply:
+    get:
+      summary: 'Apply for Job'
+      description:  Apply for particular job
+      operationId: jobs
+      consumes:
+        - application/json
+        - application/xml
+      produces:
+        - application/xml
+        - application/json
+      parameters:
+        - in: query
+          name: Empid
+          description: Enter employee id
+          required: true
+          type: string
+        
+        - in: query
+          name: Employeee Name
+          description: Enter employee Name
+          required: true
+          type: string
+          
+        - in: query
+          name: Email
+          description: Enter Email
+          required: true
+          type: string
+        
+        - in: query
+          name: Level
+          description: Enter Level
+          required: true
+          type: string
+          
+        - in: query
+          name: Experience
+          description: Enter Experience
+          required: true
+          type: string
+          
+        - in: query
+          name: Skillset
+          description: Enter Skillset
+          required: true
+          type: string
+          
+        - in: query
+          name: Location
+          description: Enter Location
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/viewform'
+  /user/save:
+    post:
+      summary: save applicant details and add to db
+      description: 'save applicant details and add to db'
+      operationId: saveappliedjobs
+      consumes:
+        - application/json
+        - application/xml
+      produces:
+        - application/xml
+        - application/json
+      parameters:
+        - in: body
+          name: body
+         
+          schema:
+            items:
+              $ref: '#/definitions/editJob'
+      responses:
+        '200':
+          description: OK 
+   
+definitions:
+  register:
+    type: "object"
+    properties:
+       Empid:
+         type: "integer"
+         example: "5355"
+       First Name:
+         type: "string"
+         example: "Anu"
+       Last Name:
+         type: "string"
+         example: "Sugumar"
+       Email:
+         type: "string"
+         example: "anuthis@gmail.com"
+       Confirm Email:
+         type: "string"
+         example: "anuthis@gmail.com"
+       Password:
+         type: "string"
+         example: "anuthis"
+       Confirm Password:
+         type: "string"
+         example: "anuthis"
+       Skillset:
+         type: "string"
+         example: "Java"
+       Location:
+         type: "string"
+         example: "Bangalore"
+         
+       
+  login:
+    type: "object"
+    properties:
+      Empid:
+       type: "integer"
+       example: "5355"
+      password:
+       type: "string"
+       example: "anuthis"
+  
+  viewJob:
+    type: object
+    properties:
+      jobId:
+        type: integer
+        format: int64
+      jobname:
+        type: string
+      exp:
+        type: integer
+      level:
+        type: string
+      skill-set:
+        type: string
+      job title:
+        type: string
+      vacancy:
+        type: integer
+      job description:
+        type: string
+        
+  createJob:
+    type: object
+    properties:
+      jobname:
+        type: string
+        example: java developer
+      exp:
+        type: integer
+        example: '3'
+      level:
+        type: string
+        example: D3
+      skill-set:
+        type: string
+        example: java
+      vacancy:
+        type: integer
+        example: '6'
+      job title:
+        type: string
+      job description:
+        type: string
+        example: front end and backend developer
+        
+  editJob:
+    type: object
+    properties:
+      jobname:
+        type: string
+        example: java developer
+      exp:
+        type: integer
+        example: '3'
+      level:
+        type: string
+        example: D3
+      skill-set:
+        type: string
+        example: java
+      vacancy:
+        type: integer
+        example: '6'
+      job title:
+        type: string
+      job description:
+        type: string
+        example: front end and backend developer
+        
+  viewApp:
+    type: object
+    properties:
+      Job Title:
+        type: string
+        example: Java Developer
+      jobId:
+        type: integer
+        example: '1'
+      ApplicantName:
+        type: string
+        example: Maheswari
+      ApplicantId:
+        type: integer
+        example: '5372'
+      Level:
+        type: string
+        example: D0
+      Email:
+        type: string
+        example: "maheswari_r@thbs.com"
+      Domain:
+        type: string
+        example: " Java Developer"
+      Skill:
+        type: string
+        example: " Java"
+      Location:
+        type: string
+        example: " Bangalore"
+        
+  viewJobs:
+     type: object
+     properties:
+      jobId:
+        type: integer
+        format: int64
+      jobname:
+        type: string
+      exp:
+        type: integer
+      level:
+        type: string
+      skill-set:
+        type: string
+      job title:
+        type: string
+      vacancy:
+        type: integer
+      job description:
+        type: string
+  
+  viewform:
+    type: object
+    properties:
+      EmpId:
+        type: integer
+        format: int64
+      Employee name:
+        type: string
+      Email:
+        type: integer
+      Level:
+        type: string
+      Experience:
+        type: integer
+      SkillSet:
+        type: string
+      Domain:
+        type: string
+  
+
+    

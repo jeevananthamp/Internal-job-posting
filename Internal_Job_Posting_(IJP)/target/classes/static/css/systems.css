@@ -1,0 +1,38 @@
+body{
+	
+	 background-image: linear-gradient(to right, rgba(255,0,0,0), #8ac6d1);
+
+}
+#textchange{
+	font-family: 'Josefin+Sans', serif;	 
+}
+
+
+.homejob{
+	font-family: serif;
+	letter-spacing:.125rem;
+	font-weight: bolder;
+}
+.widthbtn{
+	width: 8.5rem;
+}
+table
+{
+	background-image: linear-gradient(to right, rgba(255,0,0,0), #bbded6);
+}
+.cardgradient{
+
+		background-image: linear-gradient(to right, rgba(255,0,0,0), #bbded6);
+}
+
+ .imgstyle
+{
+	mx-auto;
+	height:6.25rem;
+	width:25rem;
+}
+
+
+
+
+

@@ -1,0 +1,37 @@
+    
+    body{
+	 background-image: linear-gradient(to right, rgba(255,0,0,0), #8ac6d1);
+	font-family: 'Josefin+Sans', serif;	 
+}
+    .imgstyle
+{
+	mx-auto;
+	height:6.25rem;
+	width:25rem;
+}
+
+.homejob{
+	font-family: 'Baskervville', serif;
+	letter-spacing:.125rem;
+	font-weight: bolder;
+}
+.widthbtn{
+	width: 7rem;
+}
+th{
+	font-family: 'Baskervville', serif;
+	
+	font-size: 1.1rem
+}
+td{
+	font-family: 'Baskervville', serif;
+	
+	font-size: 1.1rem
+}
+
+
+
+table{
+	background-image: linear-gradient(to right, rgba(255,0,0,0), #c3f0ca);
+}
+
