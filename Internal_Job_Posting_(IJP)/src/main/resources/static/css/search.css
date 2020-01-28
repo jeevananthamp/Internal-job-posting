@@ -1,0 +1,19 @@
+body{
+	
+	 background-image: linear-gradient(to right, rgba(255,0,0,0), #8ac6d1);
+overflow-x:hidden;
+}
+#textchange{
+	font-family: serif;	 
+}
+
+ .imgstyle
+{
+	height:6.25rem;
+	width:25rem;
+
+}
+.card{
+
+		 background-image: linear-gradient(to right, rgba(255,0,0,0), #8ac6d1);
+}

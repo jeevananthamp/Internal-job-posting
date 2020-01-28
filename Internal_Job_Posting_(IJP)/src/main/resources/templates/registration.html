@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" type="text/css" th:href="@{/css/RegisterStyle.css}"/>
+<!-- 
+<link rel="stylesheet" th:href="@{https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css}" >
+<link href="https://fonts.googleapis.com/css?family=Baskervville|Josefin+Sans|Playfair+Display&display=swap" rel="stylesheet">
+ -->
+ <!-- Font Awesome -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+<!-- Google Fonts -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+<!-- Bootstrap core CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+<!-- Material Design Bootstrap -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.10.1/css/mdb.min.css" >
+    <title>Registration</title>
+</head>
+
+<body>
+    <div class="container" >
+        <div class="row">
+            <div class="col-sm-5 col-md-6 col-md-offset-3  mx-auto">
+
+                <div th:if="${param.success}">
+                    <div class="alert alert-info">You've successfully registered to the IJP Portal</div>
+                </div>
+<div id="divstyle">
+<br>
+<br>
+            <img class="imgstyle" src="/images/thislogo.png" alt="logo">
+                <br>
+                <br>
+                <br>
+                <div class="formstyle shadow p-3 mb-5 bg-white ">
+                <form th:action="@{/registration}" th:object="${user}" method="post" autocomplete="off">
+
+                    <p class="error-message" th:if="${#fields.hasGlobalErrors()}" th:each="error : ${#fields.errors('global')}" th:text="${error}">Validation error
+                    </p>
+					<br>
+					<br>
+					
+				<div class="form-group"	th:classappend="${#fields.hasErrors('empid')}? 'has-error':''">
+						<label for="empid" class="control-label">Emp Id: </label> <input id="label" class="form-control"th:field="*{empid}" />
+						<p class="error-message" th:each="error : ${#fields.errors('empid')}" th:text="${error}">Validation error</p>
+					</div>
+					
+					
+					 <div class="form-group" th:classappend="${#fields.hasErrors('firstName')}? 'has-error':''">
+                        <label for="firstName" >First Name: </label> <input id="label" class="form-control" th:field="*{firstName}" />
+                        <p class="error-message" th:each="error : ${#fields.errors('firstName')}" th:text="${error}">Validation error</p>
+                    </div>
+                    
+                    <div class="form-group" th:classappend="${#fields.hasErrors('lastName')}? 'has-error':''">
+                        <label for="lastName" class="control-label">Last Name: </label> <input id="label" class="form-control" th:field="*{lastName}" />
+                        <p class="error-message" th:each="error : ${#fields.errors('lastName')}" th:text="${error}">Validation error</p>
+                    </div>
+                   
+                    <div class="form-group" th:classappend="${#fields.hasErrors('email')}? 'has-error':''">
+                        <label for="email" class="control-label">E-mail: </label> <input id="label" class="form-control" th:field="*{email}" />
+                        <p class="error-message" th:each="error : ${#fields.errors('email')}" th:text="${error}">Validation error
+                        </p>
+                    </div>
+                   
+				   <div class="form-group" th:classappend="${#fields.hasErrors('confirmEmail')}? 'has-error':''">
+						<label for="confirmEmail" class="control-label">Confirm E-mail: </label> <input id="label" class="form-control" th:field="*{confirmEmail}" />
+						<p class="error-message" th:each="error : ${#fields.errors('confirmEmail')}" th:text="${error}">Validation error</p>
+					</div>
+				   
+				   
+                    <div class="form-group" th:classappend="${#fields.hasErrors('password')}? 'has-error':''">
+                        <label for="password" class="control-label">Password: </label> <input id="label" class="form-control" type="password" th:field="*{password}" />
+                        <p class="error-message" th:each="error : ${#fields.errors('password')}" th:text="${error}">Validation error</p>
+                    </div>
+                    <div class="form-group" th:classappend="${#fields.hasErrors('confirmPassword')}? 'has-error':''">
+                        <label for="confirmPassword" class="control-label">Confirm
+                              password: </label> <input id="label" class="form-control" type="password" th:field="*{confirmPassword}" />
+                        <p class="error-message" th:each="error : ${#fields.errors('confirmPassword')}" th:text="${error}">Validation error</p>
+                    </div>
+                    
+					
+					<div class="form-group"
+						th:classappend="${#fields.hasErrors('domain')}? 'has-error':''">
+						<label for="domain" class="control-label">Domain:
+						</label> <input id="label" class="form-control"
+							th:field="*{domain}" />
+						<p class="error-message"
+							th:each="error : ${#fields.errors('domain')}"
+							th:text="${error}">Validation error</p>
+					</div>
+					
+					<div class="form-group"
+						th:classappend="${#fields.hasErrors('level')}? 'has-error':''">
+						<label for="level" class="control-label">Level:
+							</label>  <select th:field="*{level}"  id="label" class="form-control">
+                         
+                                               <option value=" D0 "> D0   </option>
+                                               <option value=" D1 "> D1     </option>
+                         
+                                              <option value=" D2 "> D2        </option>
+                                              <option value=" D3 "> D3 </option>
+                                           <option value=" D4 "> D4     </option>
+                                           <option value=" D4 "> D5    </option>
+                                           <option value=" D4 "> M1     </option>
+                                           <option value=" D4 "> M2     </option>
+                                           <option value=" D4 "> M3    </option>
+                                           <option value=" D4 "> T1     </option>
+                                           <option value=" D4 "> T2     </option>
+                                           <option value=" D4 "> T3     </option>
+                                           <option value=" D4 "> A1     </option>
+                                           <option value=" D4 "> A2     </option>
+                                           <option value=" D4 "> A3     </option>
+                                          </select>
+                         
+							
+						<p class="error-message"
+							th:each="error : ${#fields.errors('level')}"
+							th:text="${error}">Validation error</p>
+					</div>
+					
+					<div class="form-group"
+						th:classappend="${#fields.hasErrors('bu')}? 'has-error':''">
+						<label for="bu" class="control-label">BU:
+						
+							</label> 
+				   <select th:field="*{bu}"  id="label" class="form-control">
+                         
+                                               <option value=" BU01 "> BU01   </option>
+                                               <option value=" BU02 "> BU02     </option>
+                         
+                                              <option value=" BU03 "> BU03        </option>
+                                              <option value=" COE "> COE </option>
+                                           <option value=" NBU System Admin "> NBU System Admin     </option>
+                                           <option value=" NBU TQM "> NBU TQM    </option>
+                                           <option value=" NBU Sales "> NBU Sales     </option>
+                                           <option value=" NBU Marketing "> NBU Marketing     </option>
+                                           <option value=" NBU Facilities "> NBU Facilities    </option>
+                                           <option value=" NBU Finance "> NBU Finance     </option>
+                                           <option value=" NBU HR "> NBU HR     </option>
+                                          </select>
+                         
+						<p class="error-message"
+							th:each="error : ${#fields.errors('bu')}"
+							th:text="${error}">Validation error</p>
+					</div>
+					
+					<div class="form-group"
+						th:classappend="${#fields.hasErrors('experience')}? 'has-error':''">
+						<label for="experience" class="control-label">Experience:
+						</label> <input id="label" type="number" class="form-control"
+							th:field="*{experience}" />
+						<p class="error-message"
+							th:each="error : ${#fields.errors('experience')}"
+							th:text="${error}">Validation error</p>
+					</div>
+					<!-- <div class="form-group"
+						th:classappend="${#fields.hasErrors('skillset')}? 'has-error':''">
+						<label for="skillset" class="control-label">Skillset:
+						</label> <input id="label" class="form-control"
+							th:field="*{skillset}" />
+						<p class="error-message"
+							th:each="error : ${#fields.errors('skillset')}"
+							th:text="${error}">Validation error</p>
+					</div>
+					 -->
+					<div class="form-group"
+						th:classappend="${#fields.hasErrors('location')}? 'has-error':''">
+						<label for="location" class="control-label">Location:
+						</label> <input id="label" class="form-control"
+							th:field="*{location}" />
+						<p class="error-message"
+							th:each="error : ${#fields.errors('location')}"
+							th:text="${error}">Validation error</p>
+					</div>
+					
+					 <label class="skillstyle" for="skills" >Skills(Multiple):</label>
+				 	<div class="regskill form-group" th:classappend="${#fields.hasErrors('skillslist')}? 'has-error':''">
+                    
+                    <select id="skills" class="form-control" th:field="*{skillslist}"  multiple="multiple">
+   
+                  <option   th:each="skill: ${predefinedskillslist}"
+                    th:value="${skill}" th:text="${skill}">
+                  </select> 
+                	<p class="error-message"
+							th:each="error : ${#fields.errors('skillslist')}"
+							th:text="${error}">Validation error</p>
+                    </div> 
+              <!--     <div class="form-group col-md-8  mx-auto">
+                                <label for="skills" class="col-form-label">Skills</label> 
+                         <select id="skills" th:field="*{skillslist}" multiple="multiple">
+   
+                        <option th:each="skill: ${predefinedskillslist}"
+                        th:value="${skill}" th:text="${skill}">
+                        </select>
+                          </div> -->
+     
+					<br>
+					<br>
+                 
+                 <div class="form-group">
+               <button type="submit"  id="bstyle" class="btn btn-success">Register</button>
+                <br>
+                   <br>
+                <span class="spanstyle">Already registered? <a  th:href="@{/login}">Login here</a></span>
+            
+                </div>
+            
+                </form>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   <!-- 
+    <script type="text/javascript" th:src="@{/webjars/jquery/3.2.1/jquery.min.js/}"></script>
+    <script type="text/javascript" th:src="@{/webjars/bootstrap/3.3.7/js/bootstrap.min.js}"></script> -->
+    <!-- JQuery -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+ <script type="text/javascript" th:src="@{/js/BsMultiSelect.js}"></script>
+ <script >
+
+	$("#skills").bsMultiSelect({
+		      
+			  selectedPanelDefMinHeight: 'calc(2.25rem + 2px)',
+			  selectedPanelLgMinHeight: 'calc(2.875rem + 2px)',
+			  selectedPanelSmMinHeight: 'calc(1.8125rem + 2px)',
+			  selectedPanelDisabledBackgroundColor: '#e9ecef',
+			  selectedPanelFocusBorderColor: '#80bdff',
+			  selectedPanelFocusBoxShadow: '0 0 0 0.2rem rgba(0, 123, 255, 0.25)',
+			  selectedPanelFocusValidBoxShadow: '0 0 0 0.2rem rgba(40, 167, 69, 0.25)',
+			  selectedPanelFocusInvalidBoxShadow: '0 0 0 0.2rem rgba(220, 53, 69, 0.25)',
+			  filterInputColor: '#0f1012',
+			  selectedItemContentDisabledOpacity: '.65',
+			  dropdDownLabelDisabledColor: '#6c757d',
+			  placeholder: 'Select...'
+		     
+		});
+    </script>
+</body>
+</html>

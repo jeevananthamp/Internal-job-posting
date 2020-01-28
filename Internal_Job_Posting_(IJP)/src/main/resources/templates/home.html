@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>THIS HOME</title>
+ <link rel="stylesheet" th:href="@{https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css}" >
+<link href="https://fonts.googleapis.com/css?family=Baskervville|Josefin+Sans|Playfair+Display&display=swap" rel="stylesheet">
+      <link rel="stylesheet" type="text/css" th:href="@{/css/home.css}"/> 
+
+</head>
+<body>
+<div class="container">
+	<div class="row">
+		<div class="col-md-offset-2 col-md-6 col-lg-offset-3 mx-auto">
+    	  <div class="col-xs-12  text-center">
+    	 
+  			<br> <br>
+    	  <img class="imgstyle" src="/images/thislogo.png" alt="logo">
+ 			 <br> <br>
+                     <h3 class="homejob">Internal Job Postings</h3>
+                     <br>
+                     
+                  <div th:if="${param.success}">
+                    <div class="alert alert-info">You've successfully Updated the profile.</div>
+                </div>
+                    
+            </div>
+ 
+           
+            
+               <div class="col-sm-12 mx-auto" >
+                                 
+<table class="table table-bordered  table-borderless table-hover shadow-lg p-3 mb-5  rounded">
+<tbody>
+<tr>
+<th>Empid</th>
+ <td th:text="${userinfo.empid}"></td>
+ </tr>
+<tr>
+<th>First Name</th>
+ <td th:text="${userinfo.firstName}"></td>
+ </tr>
+<tr>
+<th>Last Name</th>
+ <td th:text="${userinfo.lastName}"></td>
+</tr>
+<tr>
+<th>Email</th>
+ <td th:text="${userinfo.email}"></td>
+</tr>
+<tr>
+<th>Domain</th>
+  <td th:text="${userinfo.domain}"></td>
+ </tr>
+ <tr>
+<th>Level</th>
+  <td th:text="${userinfo.level}"></td>
+ </tr>
+  <tr>
+<th>Business Unit</th>
+  <td th:text="${userinfo.bu}"></td>
+ </tr>
+<tr>
+<th>Experience</th>
+ <td th:text="${userinfo.experience}"></td>
+ </tr>
+<tr>
+<th>SkillSet</th>
+<td>
+    <p  th:each="userskill: ${userinfo.skillset}">
+       <span th:text="${userskill.name}"></span>
+      </p>
+      </td> 
+ </tr>
+ 
+ <tr>
+<th>Location</th>
+    <td th:text="${userinfo.location}"></td>
+ </tr>
+<tr>
+</tbody>
+</table>                   
+            </div>    
+            
+    	 
+            
+              <div class="col-md-6 col-xs-12 text-center mx-auto">
+              
+                 
+             <div class="col-xs-12 col-md-6  emphasis m-2">
+             <a th:href="@{/editUser}"><button type="button"  class="btn btn-primary  widthbtn">
+                      <i class="fas fa-user-edit "></i>Edit Profile</button>
+                                    </a>
+                                    </div>
+            
+             <div sec:authorize="hasRole('EMPLOYEE')">                 
+                <div class="col-xs-12 col-md-6  emphasis m-2">
+                   
+                   <a th:href="@{/employee}"> <button type="button" class="form-control btn btn-success widthbtn ">
+                   <span class="fa fa-plus-circle"></span>View Jobs </button></a>
+                </div>                                        
+               
+            </div>
+            
+              <div sec:authorize="hasRole('ADMIN')">        
+                <div class="col-xs-12 col-md-6  emphasis m-2">
+                   
+                   <a th:href="@{/admin}"> <button type="button" class="btn btn-success widthbtn ">
+                   <span class="fa fa-plus-circle"></span> Jobs </button></a>
+                </div>
+             </div>                
+            
+          
+                                    
+                                    
+             <div class="col-xs-12 col-md-6  emphasis m-2">
+                   
+                 <a th:href="@{/logout}"><button type="button" class="btn btn-warning widthbtn ">
+                   <span class="fa fa-warning "></span>Log Out </button></a>
+                </div>       
+            </div>
+            </div>
+    	 </div>                 
+		</div>
+	
+<br>
+<br>
+
+	<script type="text/javascript" th:src="@{//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js}"></script> 
+        <script  type="text/javascript" th:src="@{//code.jquery.com/jquery-1.11.1.min.js}"></script>
+        
+        
+<script>
+
+function myFunction() {
+	  var input, filter, table, tr, td, i, txtValue;
+	  input = document.getElementById("myInput");
+	  filter = input.value.toUpperCase();
+	  table = document.getElementById("myTable");
+	  tr = table.getElementsByTagName("tr");
+	  for (i = 0; i < tr.length; i++) {
+	    td = tr[i].getElementsByTagName("td")[0];
+	    if (td) {
+	      txtValue = td.textContent || td.innerText;
+	      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+	        tr[i].style.display = "";
+	      } else {
+	        tr[i].style.display = "none";
+	      }
+	    }       
+	  }
+	}
+
+
+
+
+
+
+</script>
+        
+        
+        
+        
+        
+</body>
+</html>

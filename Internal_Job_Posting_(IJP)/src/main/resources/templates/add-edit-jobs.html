@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+ 
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Job Editor</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+</head>
+ 
+ 
+ 
+<link rel="stylesheet" type="text/css" th:href="@{/css/add-edit.css}"/>
+<link rel="stylesheet" th:href="@{https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css}" >
+<link href="https://fonts.googleapis.com/css?family=Baskervville|Josefin+Sans|Playfair+Display&display=swap" rel="stylesheet">
+ 
+<body id="textchange">
+
+ <div class="col-xs-12 divider text-center">
+         			<br> <br>
+    	  <img class="imgstyle" src="/images/thislogo.png" alt="logo">
+ 		</div>
+
+    <div class="container my-3">
+    <br>
+    <br>
+        <h3> Add Job </h3>
+      
+        <br>
+        <div class="card">
+            <div class="card-body">
+                <div class="col-md-10">
+                    <form action="#" th:action="@{/admin/createJob}" th:object="${job}"
+                                                                       method="post" autocomplete="off">
+                        <div class="row mx-auto">
+                            <div class="form-group col-md-8 mx-auto">
+                                <label for="title" class="col-form-label">Job Title</label> 
+                                
+                                       
+            
+                    <select th:field="*{title}"  id="title" class="form-control">
+                         
+                         <option value=" API Developer "> API Developer   </option>
+                         <option value=" Associate Project Manager"> Associate Project Manager     </option>
+                         
+                         <option value=" Android Developer "> Android Developer        </option>
+                         <option value=" Integration Manager ">Integration Manager</option>
+                         <option value=" Java Developer "> Java Developer     </option>
+                         <option value=" Lead/Manager "> Lead/Manager     </option>
+                                                  
+                         <option value=" Python Developer "> Python Developer        </option>
+                         <option value=" Quality Analyst Lead "> Quality Analyst Lead     </option>
+                         <option value=" Test Enginner "> Test Engineer        </option>
+                         <option value=" Unix Developer "> Unix Developer       </option>
+                         <option value=" Web developement "> Web Development       </option>
+                         </select>
+ 
+         
+                            </div>
+                            <div class="form-group col-md-8  mx-auto">
+                                <label for="exp" class="col-form-label">Experience</label> 
+                                <input type="text" th:field="*{exp}" class="form-control"
+                                            id="exp" placeholder="exp" />
+                            </div>
+                             <div class="form-group col-md-8  mx-auto">
+                                <label for="level" class="col-form-label">Level</label> 
+                                <select th:field="*{level}"  id="level" class="form-control">
+                         
+                                               <option value=" D0 "> D0   </option>
+                                               <option value=" D1 "> D1     </option>
+                         
+                                              <option value=" D2 "> D2        </option>
+                                              <option value=" D3 "> D3 </option>
+                                           <option value=" D4 "> D4     </option>
+                                           <option value=" D4 "> D5    </option>
+                                           <option value=" D4 "> M1     </option>
+                                           <option value=" D4 "> M2     </option>
+                                           <option value=" D4 "> M3    </option>
+                                           <option value=" D4 "> T1     </option>
+                                           <option value=" D4 "> T2     </option>
+                                           <option value=" D4 "> T3     </option>
+                                           <option value=" D4 "> A1     </option>
+                                           <option value=" D4 "> A2     </option>
+                                           <option value=" D4 "> A3     </option>
+                                          </select>
+                                                   </div>
+                                                   
+                                 
+                                       <div class="form-group col-md-8  mx-auto">
+                                <label for="bu" class="col-form-label">Business Unit</label> 
+                                <select th:field="*{bu}"  id="bu" class="form-control">
+                         
+                                               <option value=" BU01 "> BU01   </option>
+                                               <option value=" BU02 "> BU02     </option>
+                         
+                                              <option value=" BU03 "> BU03        </option>
+                                              <option value=" COE "> COE </option>
+                                           <option value=" NBU System Admin "> NBU System Admin     </option>
+                                           <option value=" NBU TQM "> NBU TQM    </option>
+                                           <option value=" NBU Sales "> NBU Sales     </option>
+                                           <option value=" NBU Marketing "> NBU Marketing     </option>
+                                           <option value=" NBU Facilities "> NBU Facilities    </option>
+                                           <option value=" NBU Finance "> NBU Finance     </option>
+                                           <option value=" NBU HR "> NBU HR     </option>
+                                          </select>
+                                                   </div>
+                                 
+        
+                            
+                              <div class="form-group col-md-8  mx-auto">
+                                <label for="multiple-skills" class="col-form-label">Skills</label> 
+                         <select id="multiple-skills" th:field="*{skills}" multiple="multiple">
+   
+                        <option th:each="skill: ${predefinedskillslist}"
+                        th:value="${skill}" th:text="${skill}">
+                        </select>
+                          </div>
+                          
+                            <div class="form-group col-md-8  mx-auto">
+                                <label for="vacancy" class="col-form-label">Vacancy</label> 
+                                <input type="number" th:field="*{vacancy}" class="form-control"
+                                            id="vacancy" placeholder="vacancy" required />
+                            </div>
+                             <div class="form-group col-md-8  mx-auto">
+                                <label for="location" class="col-form-label"> Job Location</label> 
+                                <input type="text" th:field="*{location}" class="form-control"
+                                            id="location" placeholder="Location" />
+                            </div>
+                              <div class="form-group col-md-8  mx-auto">
+                                <label for="des" class="col-form-label">Description</label> 
+                                <input type="text" th:field="*{des}" class="form-control"
+                                            id="des" placeholder="description" />
+                            </div>
+                          
+                          
+ 
+                            <div class="col-md-6  mx-auto">
+                                <input type="submit" class="btn btn-success" value=" Submit ">
+                            </div>
+ 
+                            <input type="hidden" id="id" th:field="*{id}">
+     
+                        </div>
+                       
+                    </form>
+                      <div class="col-sx-6  text-center ">
+	     <div class="col-sx-12 col-sm-6 emphasis mx-auto" style="margin:.5rem" >  
+			<a th:href="@{/admin}"><button class="form-control btn btn-primary" >Back To View Jobs</button></a>
+			</div>
+			</div>
+                </div>
+            </div>
+        </div>
+    </div>
+       <!-- JQuery -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- Bootstrap tooltips -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+ <script type="text/javascript" th:src="@{/js/BsMultiSelect.js}"></script>
+ <script >
+ $("#multiple-skills").bsMultiSelect({
+	  selectedPanelDefMinHeight: 'calc(2.25rem + 2px)',
+	  selectedPanelLgMinHeight: 'calc(2.875rem + 2px)',
+	  selectedPanelSmMinHeight: 'calc(1.8125rem + 2px)',
+	  selectedPanelDisabledBackgroundColor: '#e9ecef',
+	  selectedPanelFocusBorderColor: '#80bdff',
+	  selectedPanelFocusBoxShadow: '0 0 0 0.2rem rgba(0, 123, 255, 0.25)',
+	  selectedPanelFocusValidBoxShadow: '0 0 0 0.2rem rgba(40, 167, 69, 0.25)',
+	  selectedPanelFocusInvalidBoxShadow: '0 0 0 0.2rem rgba(220, 53, 69, 0.25)',
+	  filterInputColor: '#495057',
+	  selectedItemContentDisabledOpacity: '.65',
+	  dropdDownLabelDisabledColor: '#6c757d',
+	  placeholder: 'Select...'
+	});
+    </script>
+</body>
+ 
+</html>

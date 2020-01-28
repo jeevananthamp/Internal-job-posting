@@ -1,0 +1,36 @@
+body{
+	
+	 background-image: linear-gradient(to right, rgba(255,0,0,0), #8ac6d1);
+	 overflow-x:hidden;
+}
+#textchange{
+	font-family:serif;	 
+}
+
+ .imgstyle
+{
+	mx-auto;
+	height:6.25rem;
+	width:25rem;
+}
+
+.widthbtn{
+	width: 8.5rem;
+}
+
+.card-body{
+ 
+background-image: linear-gradient(to right, rgba(255,0,0,0), #bbded6);
+}
+.card{
+	width: 50%;
+	margin-left: 17rem;
+	
+}
+h3{
+font-family:serif;	
+	text-align: center;
+	letter-spacing: 0.1rem;
+}
+
+

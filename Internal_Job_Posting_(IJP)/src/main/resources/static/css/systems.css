@@ -1,0 +1,42 @@
+body{
+	
+	 background-image: linear-gradient(to right, rgba(255,0,0,0), #8ac6d1);
+overflow-x:hidden;
+}
+#textchange{
+	font-family: serif;	 
+}
+
+
+.homejob{
+	font-family: serif;
+	letter-spacing:.125rem;
+	font-weight: bolder;
+}
+.widthbtn{
+	width: 8.5rem;
+}
+table
+{
+	background-image: linear-gradient(to right, rgba(255,0,0,0), #bbded6);
+}
+.cardgradient{
+
+		background-image: linear-gradient(to right, rgba(255,0,0,0), #bbded6);
+}
+
+ .imgstyle
+{
+	mx-auto;
+	height:6.25rem;
+	width:25rem;
+}
+td.whatever
+{
+    max-width: 150px;
+    word-wrap: break-word;
+}
+
+
+
+

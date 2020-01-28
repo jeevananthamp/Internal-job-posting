@@ -1,0 +1,38 @@
+    
+    body{
+	 background-image: linear-gradient(to right, rgba(255,0,0,0), #8ac6d1);
+	font-family:serif;	 
+	overflow-x:hidden;
+}
+    .imgstyle
+{
+	mx-auto;
+	height:6.25rem;
+	width:25rem;
+}
+
+.homejob{
+	font-family: serif;
+	letter-spacing:.125rem;
+	font-weight: bolder;
+}
+.widthbtn{
+	width: 7rem;
+}
+th{
+	font-family: serif;
+	
+	font-size: 1.1rem
+}
+td{
+	font-family:  serif;
+	
+	font-size: 1.1rem
+}
+
+
+
+table{
+	background-image: linear-gradient(to right, rgba(255,0,0,0), #c3f0ca);
+}
+
